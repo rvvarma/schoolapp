@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>teacher to class</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+
+
+.add{
+padding-top: 10px;
+  font-size:25px;
+
+    padding-left:250px;
+
+    margin-left:150px;
+    font-size:25px;
+    font-weight: bold;
+
+
+
+
+}
+.total{
+    background-color:	#19B8D7;
+
+}
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+
+</style>
+<style>
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+margin-left: 100px;       }
+
+        #customers td, #customers th {
+            border: 1px solid #000;
+            padding: 8px;
+        }
+
+        #customers tr
+        {
+          background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color:	#19B8D7;
+            color: white;
+        }
+
+        H1{
+          text-align: center;
+          font-size: 75px;
+          font-weight: bolder;
+          font-style: italic;
+          margin-top: 150px;
+
+        }
+
+        </style>
+
+</head>
+<body>
+  <div id="navbar" >
+    <a class="javascript:void(0)"  routerLinkActive="active"   [routerLink]="['/admindashboard']">Home</a>
+    <a href="active" href="javascript:void(0)"  routerLinkActive="active" [routerLink]="['/admin/teacherlist']" >Contact</a>
+    <a href="javascript:void(0)" >Logout </a>
+
+  </div>
+  <H1> Alekta Pre School    </H1>
+<div class="add">
+  <h1 class="h"> Add New  Teacher   </h1>
+
+  <form  #data="ngForm" (ngSubmit)="onSubmit(data.value)">
+
+
+
+    SCHOOL ID:<input type="text" name="School_Id"  ngModel><br>
+    <label>TEACHER ID </label>
+
+    <select  (change)="fetchclass($event.target.value)"  name="Teacher_Id" ngModel >
+            <option value="0" ></option>
+            <option *ngFor="let classes of teacherid" value={{classes.Teacher_Id}} >
+                {{classes.Teacher_Id}}
+            </option>
+        </select><br>
+
+
+
+
+
+    <label>CLASS </label>
+  <select (change)="fetchsection($event.target.value)" name="Class" ngModel >
+      <option value="0">CLASSES</option>
+      <option *ngFor="let classes of class" value={{classes.classes.classname}}>
+          {{classes.classes.classname}}
+      </option>
+  </select><br>
+
+
+  <label>SECTION</label>
+  <select (change)="fetchsubjects($event.target.value)" name="Section" ngModel>
+      <option value="0">SECTIONS</option>
+      <option *ngFor="let sections of section" value={{sections}}>
+          {{sections}}
+      </option>
+  </select><br>
+
+
+  <label>SUBJECT</label>
+  <select  name="Subject" ngModel>
+      <option value="0">Subject</option>
+      <option *ngFor="let sections of subjects" value={{sections}}>
+          {{sections}}
+      </option>
+  </select><BR>
+
+
+    TEACHER TYPE:<input type="text" name="Teacher_Type" ngModel><br>
+    <input type="submit" value="ADD TEACHER" >
+
+    </form>
+  </div>
+    <table id="customers">
+
+        <tr>
+     <th>School_Id</th>
+     <th>Teacher_Id</th>
+        <th>Class</th>
+        <th>Section</th>
+        <th>Subject</th>
+
+        <th>EDIT</th></tr>
+ <tr *ngFor="let teachers of teacher"  >
+ <td>{{teachers.School_Id}} </td>
+
+ <td>{{teachers.Teacher_Id}}</td>
+ <td>{{teachers.Class}}</td>
+ <td>{{teachers.Section}}</td>
+ <td>{{teachers.Subject}}</td>
+
+ <td><a [routerLink]="['/edit', teachers.Teacher_Id]">EDIT</a></td>
+ <!---<td><a href="javascript:void(0)" routerLink="cartoonBoxUrl()" routerLinkActive="active">EDIT</a></td>-->
+
+
+
+
+ </tr>
+
+
+
+
+ </table>
+ </body>

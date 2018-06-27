@@ -1,14 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+//import 'rxjs/add/operator/toPromise';
+//import 'rxjs/Rx';
+//import {Observable} from "rxjs/Rx";
+
+
+import { Component, OnInit ,NgModule,
+  Pipe
+  } from '@angular/core';
 import { RequestOptions,Request,RequestMethod,Http,Response,Headers, } from '@angular/http';
 import { ActivatedRoute, Router, } from '@angular/router';
+//import 'rxjs/add/operator/toPromise';
+//import 'rxjs/add/operator/toPromise';
+
+import {
+  ReactiveFormsModule,
+  FormsModule,
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder
+} from '@angular/forms';
+
+
+import {BrowserModule} from '@angular/platform-browser';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+
+
+
 @Component({
   selector: 'app-edit-assign-teacher-class-list',
-  templateUrl: './edit-assign-teacher-class-list.component.html',
-  styleUrls: ['./edit-assign-teacher-class-list.component.css']
+    templateUrl: './edit-assign-teacher-class-list.component.html',
+    styleUrls: ['./edit-assign-teacher-class-list.component.css']
+
+
+
+
+
+
 })
 export class EditAssignTeacherClassListComponent implements OnInit {
 
-  constructor(private http: Http, private router: Router, private route: ActivatedRoute) { }
+  constructor( private http: Http, private router: Router, private route: ActivatedRoute) {
+  }
+  private headers =new Headers({'ContentType':'application/json'})
   fetch=[];
   cl:any;
   sec:any;
@@ -38,7 +71,7 @@ export class EditAssignTeacherClassListComponent implements OnInit {
    }
 fetchclass=function()
 {
-  this.http.get("http://10.10.5.59:5000/getclass").subscribe (
+  this.http.get("http://10.10.5.42:5000/getclass").subscribe (
     (res:Response) =>{
       this.class=res.json();
 
@@ -55,7 +88,7 @@ fetchsection=function(pro)
   var hash={};
   hash['one']='onellll';
   console.log(hash['one'])
-  this.http.get("http://10.10.5.59:5000/getclass").subscribe (
+  this.http.get("http://10.10.5.42:5000/getclass").subscribe (
     (res:Response) =>{
       this.class=res.json();
        // var classes=this.class[0].classname;
@@ -83,7 +116,7 @@ fetchsubjects=function(pro)
   var hash={};
   var acc = document.getElementById("class").value;
 console.log("saa  "+acc)
-  this.http.get("http://10.10.5.59:5000/getclass").subscribe (
+  this.http.get("http://10.10.5.42:5000/getclass").subscribe (
     (res:Response) =>{
       this.class=res.json();
        // var classes=this.class[0].classname;
@@ -100,9 +133,50 @@ this.subjects=hash[acc]
     }
  )
 }
-bankName:any;
-  ngOnInit() {
 
+
+/*fetchtimein=function()
+{
+  var hash={};
+
+  this.http.get("http://10.10.5.54:3004/fetch").subscribe (
+    (res:Response) =>{
+      this.timein=res.json();
+      console.log(this.timein)
+
+
+
+    }
+)
+}
+fetchtimeout=function()
+{
+  this.http.get("http://10.10.5.54:3004/fetch").subscribe (
+    (res:Response) =>{
+      this.timein=res.json();
+      console.log(this.timeout)
+
+
+
+    }
+)
+}*/
+
+/*fetchday=function()
+{
+  this.http.get("http://10.10.5.54:3004/fetch").subscribe (
+    (res:Response) =>{
+      this.day=res.json();
+      console.log(this.day)
+
+
+
+    }
+)
+}*/
+bankName:any;
+
+  ngOnInit() {
 
     this.fetchDate();
 this.fetchclass();
@@ -113,7 +187,7 @@ console.log("dsvsdvsd" +this.bankName)
 //this.fetchtimein();
  //this.fetchtimeout();
  //this.fetchday();
- const url="http://10.10.5.54:3004/class"+"/"+this.bankName;
+ const url="http://10.10.5.54:3004/c"+"/"+this.bankName;
 
 
 
@@ -128,12 +202,14 @@ this.http.get(url).subscribe (
    this.sec=r[0].Section
    this.sub=r[0].Subject
    console.log(this.cl)
+   console.log(this.sec)
+   console.log(this.sub)
    this.fetchsection(r[0].Class)
   // this.fetchsubjects(r[0].Class)
 
   var hash={};
 
-   this.http.get("http://10.10.5.59:5000/getclass").subscribe (
+   this.http.get("http://10.10.5.42:5000/getclass").subscribe (
     (res:Response) =>{
       this.class=res.json();
        // var classes=this.class[0].classname;
@@ -151,32 +227,32 @@ this.subjects=hash[r[0].Class]
   )
 
   })
-  }
-
+}
 
   onSubmit=function(Teacher_Name) {
-  alert(JSON.stringify(Teacher_Name))
-   var bankName = this.route.snapshot.params['id'];
+    alert(JSON.stringify(Teacher_Name))
+     var bankName = this.route.snapshot.params['id'];
 
 
-  if(confirm("ARE U SURE FOR UPDATE?"))
-  {
-    alert(Teacher_Name.Teacher_Id)
-    var tname=Teacher_Name.Teacher_Id;
-    console.log(tname)
-    const url="http://10.10.5.54:3004/update"+"/"+bankName;
-    //const url="http://10.10.5.54:3004/post";
+    if(confirm("ARE U SURE FOR UPDATE?"))
+    {
+      alert(Teacher_Name.Teacher_Id)
+      var tname=Teacher_Name.Teacher_Id;
+      console.log(tname)
+      const url="http://10.10.5.54:3004/u"+"/"+bankName;
+      //const url="http://10.10.5.54:3004/post";
 
 alert(url)
 
-    return this.http.put(url,Teacher_Name).toPromise()
-    .then(res => console.log(<any[]> res.json()))
+      return this.http.put(url,Teacher_Name).toPromise()
+      .then(res => console.log(<any[]> res.json()))
 
 
-    .then(data => { return data; });
-   // alert("successfully updated....!")
+      .then(data => { return data; });
+     // alert("successfully updated....!")
 
-  }
+    }
 }
+
 
 }

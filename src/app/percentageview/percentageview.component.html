@@ -1,0 +1,44 @@
+
+<div id="navbar" >
+  <a class="javascript:void(0)"  routerLinkActive="active"   [routerLink]="['/admindashboard']">Home</a>
+  <a href="active" href="javascript:void(0)"  routerLinkActive="active" [routerLink]="['/admin/teacherlist']" >Contact</a>
+  <a href="javascript:void(0)" >Logout </a>
+
+</div>
+
+<div>
+  <canvas
+      baseChart
+      [chartType]="'pie'"
+      [datasets]="pieChartData"
+      [labels]="pieChartLabels"
+      [options]="pieChartOptions"
+      [legend]="true"
+      [colors]="pieChartColor"
+  >
+  </canvas>
+</div>
+
+
+<form id = "formNewProduct" name = "formNewProduct" #ProdutData = "ngForm" (ngSubmit) = "onSubmit()" >
+
+
+  <table color='blue'>
+    <thead>
+     <th>studentid</th>
+     <th>status</th>
+
+   </thead>
+
+<tbody>
+  <tr *ngFor ="let a of att" >
+  <td>{{a.stid}}</td>
+    <td>{{a.status}}</td>
+
+  </tr>
+</tbody>
+</table>
+<input type="submit" value="submit">&nbsp;
+
+<a [routerLink]="" (click)="add1()">back</a>
+</form>

@@ -1,10 +1,21 @@
-<div class="total ">
-        <h2 >Assigning Teacher to class </h2>
+
+<div id="navbar" >
+  <a class="javascript:void(0)"  routerLinkActive="active"   [routerLink]="['/admindashboard']">Home</a>
+  <a href="active" href="javascript:void(0)"  routerLinkActive="active" [routerLink]="['/admin/teacherlist']" >Contact</a>
+  <a href="javascript:void(0)" >Logout </a>
+
+</div>
+<H1> Alekta Pre School    </H1>
+
+<div class="cus">
+<div class="total">
+  <h1 class="h"> Add NEW  Teacher   </h1>
         </div>
 
-
-<a [routerLink]="['/addteacher']">ADD TEACHER</a>
-
+<div class="sa">
+<button class="button" [routerLink]="['/addteacher']">ADD  TEACHER</button>
+</div>
+<br>
 <table id="customers">
 
 <tr>
@@ -27,7 +38,7 @@
 <td>{{teachers.Subject}}</td>
 
 
-<td><a [routerLink]="['/admin/teacherlist/edit',teachers.Teacher_Id]">EDIT</a></td>
+<td id="edit"><a [routerLink]="['/admin/teacherlist/edit',teachers._id]">EDIT</a></td>
 
 
 
@@ -42,3 +53,4 @@
 
 
 </table>
+</div>

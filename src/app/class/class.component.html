@@ -1,0 +1,39 @@
+
+
+<label>CLASS </label>
+  <select  name="Class" id="class" ngModel >
+      <option value="0">CLASSES</option>
+      <option *ngFor="let classes of teacher" value={{classes.Class}}>
+          {{classes.Class}}
+      </option>
+  </select><br>
+
+
+  <label>SECTION</label>
+  <select (change)="fetchsubjects($event.target.value)" name="Section" id="section" ngModel>
+      <option value="0">SECTIONS</option>
+      <option *ngFor="let sections of teacher" value={{sections.Section}}>
+          {{sections.Section}}
+      </option>
+  </select><br>
+
+<div class="tab">
+  <button  class="tablinks" onclick="openCity(event, 'London')" style="    font-size: 40px;">London</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')" style="    font-size: 40px;">Paris</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')" style="    font-size: 40px;">Tokyo</button>
+</div>
+
+<div id="London" class="tabcontent">
+  <h3>London</h3>
+  <p>London is the capital city of England.</p>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>

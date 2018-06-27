@@ -33,7 +33,7 @@ export class AssignTeacherClassListComponent implements OnInit {
   fetchDate=function()
 {
 
-  this.http.get("http://10.10.5.54:3004/fetch").subscribe (
+  this.http.get("http://10.10.5.47:3004/fetch").subscribe (
     (res:Response) =>{
       this.teacher=res.json();
 
@@ -45,7 +45,7 @@ export class AssignTeacherClassListComponent implements OnInit {
 fetchclass=function()
 {
 
-  this.http.get("http://10.10.5.59:5000/getclass").subscribe (
+  this.http.get("http://10.10.5.47:5000/getclass").subscribe (
 
     (res:Response) =>{
       this.class=res.json();
@@ -61,7 +61,7 @@ fetchsection=function(pro)
   hash['one']='onellll';
   console.log(hash['one'])
 
-  this.http.get("http://10.10.5.59:5000/getclass").subscribe (
+  this.http.get("http://10.10.5.47:5000/getclass").subscribe (
 
     (res:Response) =>{
       this.class=res.json();
@@ -89,7 +89,7 @@ fetchsubjects=function(pro)
 
 
 
-  this.http.get("http://10.10.5.4:5000/getclass").subscribe (
+  this.http.get("http://10.10.5.47:5000/getclass").subscribe (
     (res:Response) =>{
       this.class=res.json();
        // var classes=this.class[0].classname;

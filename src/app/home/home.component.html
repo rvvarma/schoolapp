@@ -1,0 +1,39 @@
+
+<div id="navbar" >
+  <a class="javascript:void(0)" routerLinkActive="active"    [routerLink]="['/admindashboard']">Home</a>
+  <a href="active" href="javascript:void(0)"  routerLinkActive="active"  [routerLink]="['/admin/teacherlist']" >Contact</a>
+  <a href="javascript:void(0)"  routerLinkActive="active" >Logout </a>
+</div>
+<H1> Alekta Pre School    </H1>
+
+<div class="total">
+<div class="create">
+<a [routerLink]="['/school']">NEW CONFIGURATION</a>
+</div>
+<table id="customers">
+
+  <tr>
+<th>Class Number</th>
+<th>FEE</th>
+  <th>TERMS</th>
+  <th>SUDENT LIMIT</th>
+  <th>EDIT</th>
+  <th>DELETE</th>
+</tr>
+<tr *ngFor="let teachers of teacher"  class="w3-light-grey w3-hover-black">
+<td>{{teachers.classes.classname}} </td>
+
+<td>{{teachers.classes.fee}}</td>
+<td>{{teachers.classes.terms}}</td>
+<td>{{teachers.classes.studentlimit}}</td>
+
+
+<td><a [routerLink]="['/edit', teachers.classes.classname]">EDIT</a></td>
+
+<td><a [routerLink]="['/delete', teachers.classes.classname]">DELETE</a></td>
+
+</tr>
+</table>
+
+
+</div>

@@ -1,0 +1,44 @@
+.h{
+   font-size:48px;
+color: 	#016DD2;
+  font-weight: bold;
+  margin-top:50px;
+  text-align: center;
+}
+#main {
+    width: 700px;
+    height: 300px;
+    border: 5px solid #c3c3c3;
+.tea{
+
+}
+
+}
+#class{
+padding-top:20px;
+  margin-left:20px;
+  font-size: 35px;
+}
+.class3
+{
+  margin-left:50px;
+
+}
+.class2{
+  margin-left:50px;
+  width : 140px !important;
+
+}
+
+.class1  {
+
+   width : 140px !important;
+
+  margin-left:80px;
+}
+
+.update{
+  padding-left:250px;
+padding-top: 50px;
+
+}

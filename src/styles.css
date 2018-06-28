@@ -6,7 +6,7 @@ body {
    height:100%;
 background-attachment: fixed;
 
-font-size: 30px;
+font-size: 25px;
  }
 
  h1, h2 {
@@ -51,7 +51,7 @@ a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 #navbar a:hover {

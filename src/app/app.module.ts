@@ -206,7 +206,7 @@ import { AdminPasswordComponent } from './admin-password/admin-password.componen
           path:'newteacher', component:NewteacherComponent
         },
 
-        {
+      {
           path:'admindetails', component:AdminDetailsComponent
         },
         {

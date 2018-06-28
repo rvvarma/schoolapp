@@ -33,10 +33,9 @@ input[type=text], input[type=password] {
 background-color:lightgreen;
 }
 .row{
-padding-top:50px;
-margin-left: 20px;
-margin-right:20px;
-
+padding-top:200px;
+padding-right:260px;
+padding-left: 100px;
 }
 
 
@@ -55,15 +54,14 @@ hr {
 }
 
 .demo-card-wide.mdl-card {
-  width: 300px;
+  width: 450px;
   margin:0 auto;
 }
 .demo-card-wide > .mdl-card__title {
   color: #fff;
   height: 176px;
-  width: 300px;
   background: url('http://creatorclip.info/wp-content/uploads/2015/07/material.png') center / cover;
-  font-size: 25px;
+  font-size: 30px;
 }
 .demo-card-wide > .mdl-card__menu {
 
@@ -72,7 +70,7 @@ hr {
 color:black;
 }
 .demo-card-square.mdl-card {
-  width: 300px;
+  width: 320px;
   height: 320px;
   margin:0 auto;
 }

@@ -1,11 +1,3 @@
-
-<div id="navbar" >
-  <a class="javascript:void(0)"  routerLinkActive="active"   [routerLink]="['/admindashboard']">Home</a>
-  <a href="active" href="javascript:void(0)"  routerLinkActive="active" [routerLink]="['/admin/teacherlist']" >Contact</a>
-  <a href="javascript:void(0)" >Logout </a>
-
-</div>
-
 <div>
   <canvas
       baseChart
@@ -15,10 +7,18 @@
       [options]="pieChartOptions"
       [legend]="true"
       [colors]="pieChartColor"
+
+
   >
+
+
   </canvas>
 </div>
 
+
+Present:<button class="button5">{{count}}</button>&nbsp;
+Absent:<button class="button6">{{count1}}</button>&nbsp;
+Leaves:<button class="button7">0</button>
 
 <form id = "formNewProduct" name = "formNewProduct" #ProdutData = "ngForm" (ngSubmit) = "onSubmit()" >
 

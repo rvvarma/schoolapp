@@ -1,0 +1,24 @@
+table {
+    width: 50%;
+}
+
+th {
+    height: 20px;
+}
+
+
+th {
+
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+td {
+
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+table, td, th {
+    border: 1px solid black;
+}

@@ -23,9 +23,7 @@ a:any;
     Class=[];
     stu=[];
      hash={};
-     getCookie(key:string){
-         return this._cookieService.get(key);
-       }
+
 
   constructor(private activatedRoute: ActivatedRoute,private http: Http,private _cookieService:CookieService,private router: Router) {
   }
@@ -84,28 +82,38 @@ this.http.post("http://10.10.5.59:5000/attendancepost",ttt).subscribe(
 
 }*/
 
+getCookie(key:string){
+    return this._cookieService.get(key);
+  }
+      fetchClass=function(cls,data,data1){
 
-      fetchClass=function(cls){
+        this.hash={}
         console.log(cls)
+        console.log(data)
           var res1 = cls.charAt(0);
           console.log(res1);
           var res2 = cls.charAt(1)
             console.log(res2);
-            this.http.get("http://localhost:5000/filter/"+res1+"/"+res2).subscribe(
+            this.http.get("http://10.10.5.69:5000/filter/"+res1+"/"+res2).subscribe(
               (res:Response)=>{
               this.stu=res.json();
+              for(var i in this.stu){
+this.hash[this.stu[i].studentid]="Present"
+       console.log(this.stu[i].studentid)
+}
               console.log(res.json());
 
-              }
-              )
+
+            } )
           }
 
-  ngOnInit() {
-      this.activatedRoute.params.subscribe(paramsId => {
-          this.id = paramsId.id;
-      });
+  ngOnInit()
+{
+
+          this.id = this.getCookie("id");
+
       console.log(this.id);
-      this.S=[]
+      this.S=[];
 
 
 
@@ -115,15 +123,18 @@ this.http.post("http://10.10.5.59:5000/attendancepost",ttt).subscribe(
   this.http.get("http://10.10.5.54:3004/class/"+this.id).subscribe(
     (res:Response) =>{
     this.Class= res.json();
-
+    //console.log(res.json());
+//console.log(this.Class)
   //  console.log(res.json())
-   var data=this.Class;
-     for (var i in data)
+   var data=[];
+   var m=this.Class;
+     for (var i in m)
        {
-          console.log(data[i].Class);
-          console.log(data[i].Section);
-          this.S.push(data[i].Class+data[i].Section)
+          //console.log(m[i].Class);
+          //console.log(m[i].Section);
+          data.push(m[i].Class+""+m[i].Section)
        }
+       this.Class=data;
 
    }
  )
@@ -138,8 +149,7 @@ var val;
 
   Object.keys(tt).forEach(function(key) {
     val = tt[key];
-  console.log("key:"+key)
-  console.log(val)
+    console.log(val)
 });*/
 
 
@@ -154,12 +164,12 @@ console.log(this.hash)
 
 console.log("kjvkhvkv "+this.count)
 this._cookieService.put("tid",ids);
-  this._cookieService.put("attendance",JSON.stringify(this.hash));
   this._cookieService.put("present",this.count);
   this._cookieService.put("absent",this.count1);
   this._cookieService.put("cls",k);
   this._cookieService.put("class",this.cccc);
   this._cookieService.put("section",this.cccc1);
+   this._cookieService.put("attendance",JSON.stringify(this.hash));
 console.log("att"+this.hash)
 
   console.log("cls"+k)
@@ -179,16 +189,19 @@ console.log("att"+this.hash)
 
 onSub(data,data1)
 {
-
+console.log(data1+"data1")
   if(data.target.checked){
 
 this.hash[data1]="Present";
-
+console.log(this.hash[data1])
+this.count++;
+console.log(this.count)
     }
 
      else{
 
     this.hash[data1]="Absent";
+    this.count1++;
 
 
 

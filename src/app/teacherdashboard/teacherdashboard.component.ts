@@ -10,6 +10,10 @@ export class TeacherdashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+
+
+
   }
 
 }

@@ -37,20 +37,11 @@ section:any;
 
 //on submit function
 onSubmit=function(data,data1){
-/*for(var i in data)
-{
-     var id = data[i];
-   this.hash[data[i]]="Present";
-}*/
-
-
-
-
-
 
 
 var ttt={
 "teacherid":this.id,
+"class":this.class;
 "section":this.section,
 "schoolid": "sc20",
 "data":this.att
@@ -68,14 +59,14 @@ console.log(res.json());
 )
 alert ("are you sure  save the attendancedetails in databse");
                document.write ("sucessfully saved");
-}
+
 
     // ADD CHART OPTIONS.
     pieChartOptions = {
         responsive: true
     }
-
-    pieChartLabels =  ['Present', 'Absent', 'Leaves'];
+}
+pieChartLabels =  ['Present', 'Absent', 'Leaves'];
 
     // CHART COLOR.
     pieChartColor:any = [
@@ -93,6 +84,7 @@ alert ("are you sure  save the attendancedetails in databse");
         {
             data: []
 
+
         }
     ];
 
@@ -100,7 +92,7 @@ alert ("are you sure  save the attendancedetails in databse");
 
           ngOnInit () {
 
-
+console.log()
             console.log("cookie 1"+this.getCookie("id"));
             this.id=this.getCookie("tid");
             var a1=JSON.parse(this.getCookie("attendance"));
@@ -153,7 +145,7 @@ alert ("are you sure  save the attendancedetails in databse");
          else
          {
            this.count1++;
-           console.log("bsahb")
+           console.log("bsahb"+this.count1)
 
          }
        }
@@ -166,6 +158,8 @@ alert ("are you sure  save the attendancedetails in databse");
             console.log(this.section)
             var f=[{ "data": [this.count,this.count1,0] }]
             this.pieChartData = f as any []
+
+
 
 
           }

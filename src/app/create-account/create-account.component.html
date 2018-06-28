@@ -1,0 +1,83 @@
+<!--
+<div id="navbar" >
+  <a class="javascript:void(0)" routerLinkActive="active"    [routerLink]="['/admindashboard']">Home</a>
+  <a href="active" href="javascript:void(0)"  routerLinkActive="active"  [routerLink]="['/admin/teacherlist']" >Contact</a>
+  <a href="javascript:void(0)"  routerLinkActive="active" >Logout </a>
+</div>
+<H1> Alekta Pre School    </H1>
+
+
+<div class="box ">
+  <div class="total">
+<h2 >Student Registrations </h2>
+</div>
+<form #f = "ngForm" (ngSubmit) = "onSubmit(f.value)" >
+  <div class="container">
+
+ Student_Id:<input type="text" name="Student_Id"  ngModel><br>
+  Student Name:<input type="text" name="Name"  ngModel><br><br>
+
+<label>Parent Type
+  <select name="Parent_type" ngModel>
+      <option value=option>ParentType<option>
+          <option value=Father>Father</option>
+              <option value=Mother>Mother</option>
+      <option value=Guardian>Guardian</option>
+     </select>
+</label><br><br>
+Parent Name:<input type="text" name="Parent_Name"  ngModel><br><br>
+  Phone Number:<input type="text" name="Phone_Number"  ngModel><br><br>
+  Mail id:<input type="text" name="Mailid"  ngModel><br><br>
+
+
+  <button type="submit"name="submit">Submit</button>
+</div>
+  </form>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+<div class="total">
+  <h2 >Student Registrations </h2>
+  <div class="row">
+    <div class="col-75">
+      <div class="one">
+        <div class="container">
+          <form #f = "ngForm" (ngSubmit) = "onSubmit(f.value)" >
+
+          <div class="row">
+            <div class="col-50">
+              <label for="fname"><i class="fa fa-user"></i> Student ID</label>
+              <input type="text" id="fname" name="firstname" placeholder="Name ">
+              <label for="email"><i class="fa fa-envelope"></i> Student N ame </label>
+              <input type="text" id="email" name="email" placeholder="xxx@example.com">
+              <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+              <input type="text" id="adr" name="address" placeholder="XX . Xth Street">
+              <label for="city"><i class="fa fa-institution"></i> City</label>
+              <input type="text" id="city" name="city" placeholder="State">
+
+              <div class="row">
+                <div class="col-50">
+
+                </div>
+
+              </div>
+            </div>
+
+
+
+          </div>
+
+          <input type="submit" value="Submitt" class="btn">
+        </form>
+      </div>
+    </div>
+<div>
+</div>

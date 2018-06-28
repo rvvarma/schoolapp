@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   constructor(private _cookieService:CookieService,private router: Router) { }
   onClickSubmit(data) {
 
-    this._cookieService.put('id', data.UNAME);
+    this._cookieService.put('id', data.name);
         console.log("Set Test Cookie as Test "+ JSON.stringify(data));
   console.log("cookie "+ this.getCookie("id"));
   this.router.navigate(['/teacherdashboard']);

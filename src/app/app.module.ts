@@ -43,6 +43,15 @@ import { DeleteComponent } from './delete/delete.component';
 import { RootComponent } from './root/root.component';
 import { HomeComponent } from './home/home.component';
 import { ParentdashboardComponent } from './parentdashboard/parentdashboard.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { AssignmentviewComponent } from './assignmentview/assignmentview.component';
+import { PresentviewComponent } from './presentview/presentview.component';
+import { NewteacherComponent } from './newteacher/newteacher.component';
+import { TeacherpasswordComponent } from './teacherpassword/teacherpassword.component';
+import { TeacherDashboardComponent } from './teacher-dashboard/teacher-dashboard.component';
+import { AdminDetailsComponent } from './admin-details/admin-details.component';
+import { AdminPasswordComponent } from './admin-password/admin-password.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +79,16 @@ import { ParentdashboardComponent } from './parentdashboard/parentdashboard.comp
     DeleteComponent,
     RootComponent,
     HomeComponent,
-    ParentdashboardComponent
+    ParentdashboardComponent,
+    CreateAccountComponent,
+    ChangePasswordComponent,
+    AssignmentviewComponent,
+    PresentviewComponent,
+    NewteacherComponent,
+    TeacherpasswordComponent,
+    TeacherDashboardComponent,
+    AdminDetailsComponent,
+    AdminPasswordComponent
     ],
   imports: [
     BrowserModule,
@@ -106,10 +124,6 @@ import { ParentdashboardComponent } from './parentdashboard/parentdashboard.comp
         ,component: TeacherdashboardComponent
       }
       ,
-      {
-
-          path: 'fetchteacherclass/:id',component: FetchTeacherClassComponent
-       },
 
       {
            path: 'admin',component:  AssignclasstostudentComponent
@@ -123,8 +137,7 @@ import { ParentdashboardComponent } from './parentdashboard/parentdashboard.comp
           path:'calender',component: CalenderComponent
       },
 
-    {  path:'percentage',component:PercentageviewComponent
- },
+
  {  path:'attendanceforadmin',component:AttendanceviewforadminComponent
 },
 {  path:'getstart',component:GetStartComponent
@@ -157,10 +170,48 @@ import { ParentdashboardComponent } from './parentdashboard/parentdashboard.comp
             },
             {
               path:'root',component:RootComponent
-            }
+            },
             {
               path:'parentdashboard',component:ParentdashboardComponent
                 },
+                {
+                        path:'createaccount', component:CreateAccountComponent
+                      },
+                      {
+                        path:'changepassword/:id', component:ChangePasswordComponent
+                      },
+                      {
+                   path: 'teacherdashboard',component: TeacherDashboardComponent
+                    },
+
+                      {
+
+                          path: 'fetchteacherclass',component: FetchTeacherClassComponent
+                       },
+
+                      {
+                        path:'percentage', component:PercentageviewComponent
+                      },
+                      {
+                        path:'assignment', component:AssignmentviewComponent
+                      },
+                      {
+                        path:'present', component:PresentviewComponent
+                      },
+                      {
+          path:'teacherpassword/:id', component:TeacherpasswordComponent
+        },
+
+{
+          path:'newteacher', component:NewteacherComponent
+        },
+
+        {
+          path:'admindetails', component:AdminDetailsComponent
+        },
+        {
+          path:'adminpassword/:id', component:AdminPasswordComponent
+        }
 
 
     ])

@@ -3,101 +3,45 @@
 </div>
 
 <form #f = "ngForm" (ngSubmit) = "onClickSubmit(f.value)" >
+
+
 <select (change)="fetchClass($event.target.value)" id="class">
 <option value=0>Class<option>
-  <option *ngFor ="let c of S" value="{{c}}" >
+  <option *ngFor ="let c of Class" value="{{c}}">
     {{c}}
   </option>
 </select>
+
 </form>
-<!--<button  type="submit" click="Submit.click()" value="Submit">Submit</button>
-<table id="customers">
-<thead>
-  <th>Student ID</th>
-  <th>Class</th>
-  <th>Section</th>
-  <th>Year</th>
-</thead>
-<tbody>
-  <tr *ngFor="let st of stu">
-  <td>{{st.studentid}}</td>
-  <td>{{st.class}}</td>
-  <td>{{st.section}}</td>
-  <td>{{st.year}}</td>
-</tr>
-</tbody>
-</table>-->
-
-<!--<button  type="submit" click="Submit.click()" value="Submit">Submit</button>-->
-<!--<table id="customers">
-<thead>
-  <th>Student ID</th>
-  <th>Class</th>
-  <th>Section</th>
-  <th>Year</th>
-</thead>
-<tbody>
-  <tr *ngFor="let st of stu">
-  <td>{{st.studentid}}</td>
-  <td>{{st.class}}</td>
-  <td>{{st.section}}</td>
-  <td>{{st.year}}</td>
-</tr>
-</tbody>
-</table>-->
 
 
-<div class="abc">
 
 <form id = "formNewProduct" name = "formNewProduct" #ProdutData = "ngForm" (ngSubmit) = "onSubmit(ProdutData.value)">
 
 
-  <table>
-    <thead>
-    <th>profileimage</th>
-    <th>Present</th>
-
-
-</thead>
-<tbody>
-<tr *ngFor ="let st of stu" >
-
-  <td>
-    <img src="assets/images/profileimage.png" class="rounded-circle" alt="Fjords" width="100" height="100"><br><br>
-
-<input type="text" width="20px" value= "{{st.studentid}}"/><br>
-</td>
-
-<!--  <input type="radio" name="Present" value="Present" ng-model="formData.Present">Present<br>
--->
-
-   <td>  <label><input type="checkbox" value="Present" name="attendance"   (change)=onSub($event,st.studentid)   ngModel>
-Present</label>&nbsp;  </td>
-
-
-</tr>
-</table>
-<button (click)="percentage()">percentage</button>
+  <div class="grid-container">
+<div *ngFor ="let st of stu" >
 
 
 
 
+      <div> <img src="../assets/images/profileimage.png">
+        <p>{{st.studentid}}</p>
 
-  <!--<div class="form-group">
-      <div class="radio">
-        <td>
-          <label>
-              <input type="radio" name="Present" value="Present" ng-model="formData.Present">
-              Present
-          </label>
-          <td>
-  </div>
 
-</tr>
-</table>
-<button (click)="percentage()">percentage</button>
--->
+<label>
+ <input type="checkbox" value="Present" name="attendance" id="check"   (change)=onSub($event,st.studentid) checked >
+Present</label>&nbsp;
 
-    </form>
+      </div>
+
+
+
+
 
 </div>
+</div>
+
+
+<button (click)="percentage()">percentage</button>
+<form>
